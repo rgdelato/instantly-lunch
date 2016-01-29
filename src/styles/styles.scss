@@ -1,0 +1,120 @@
+@import "bourbon/bourbon";
+@import "base/base";
+@import "neat/neat";
+
+
+
+body {
+	margin: 0; padding: 0;
+}
+
+#root {
+	@include outer-container;
+}
+
+.header {
+	@include clearfix();
+	margin-bottom: $base-spacing;
+	border-bottom: $base-border;
+	padding: $small-spacing;
+}
+
+.header-logo {
+	@include span-columns(4);
+	font-size: 1.4em;
+	font-weight: bold;
+}
+
+.header-links {
+	@include span-columns(8);
+	@include omega();
+	text-align: right;
+	line-height: 2.1em;
+}
+
+.footer {
+	@include clearfix();
+	margin-top: $base-spacing;
+	border-top: $base-border;
+	padding: $small-spacing;
+	background: #F7F7F7;
+}
+
+.footer-content {
+	width: 91.4702%;
+	max-width: 400px;
+	margin: 0 auto;
+	
+	label, input { margin-bottom: 0; }
+}
+
+.content {
+	text-align: center;
+	
+	min-height: calc(100vh - 1.5em - 58.6px - 1.5em - 63.45px);
+}
+
+.restaurant-list,
+.restaurant-search {
+	width: 91.4702%;
+	max-width: 400px;
+	margin: 0 auto;
+}
+
+.restaurant-search {
+	margin-bottom: $base-spacing;
+}
+
+.restaurant-item {
+	position: relative;
+	margin-bottom: $base-spacing;
+	padding: $small-spacing;
+	border: $base-border;
+	text-align: center;
+	background-color: white;
+	overflow: hidden;
+}
+
+fieldset.restaurant-item { background: #f7f7f7; }
+
+.restaurant-item h1 {
+	font-size: 1.4em;
+}
+
+.restaurant-item textarea {
+	height: 4.25em;
+}
+
+.restaurant-item-attributes {
+	@include clearfix;
+}
+
+.restaurant-item-attribute {
+	@include span-columns(4);
+	@include omega(3n);
+	font-weight: normal;
+	text-align: center;
+	
+	&.disabled {
+		color: $light-gray;
+	}
+}
+
+.restaurant-item-exclude {
+	@include clearfix;
+	margin-top: $small-spacing;
+	margin-bottom: 0;
+	border-top: $base-border;
+	padding-top: $small-spacing;
+	
+	label { margin-bottom: 0; font-weight: normal; }
+}
+
+.restaurant-item-edit-button {
+	position: absolute;
+	top: 0;
+	right: 0;
+	padding: $small-spacing / 2;
+	font-size: 0.8em;
+	font-weight: normal;
+}
