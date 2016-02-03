@@ -51,7 +51,7 @@ export default class App extends Component {
 					}
 				</TransitionMotion>
 
-				{(window.devToolsExtension) ? <Footer /> : null}
+				<Footer />
 			</div>
 		);
 	}
