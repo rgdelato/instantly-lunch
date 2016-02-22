@@ -23,7 +23,10 @@ import RestaurantListPage from './components/RestaurantListPage';
 
 // apply middleware/devtools to Redux
 const createStoreWithMiddleware = compose(
-	applyMiddleware(thunk),
+	applyMiddleware(
+		thunk,
+		(process.env.NODE_ENV !== 'production') ? require('redux-immutable-state-invariant')() : (f) => f
+	),
 	window.devToolsExtension ? window.devToolsExtension() : (f) => { return f; }
 )(createStore);
 
@@ -50,7 +53,7 @@ let currentUserState;
 store.subscribe(function () {
 	let previousUserState = currentUserState;
 	currentUserState = store.getState().user;
-	
+
 	if (previousUserState !== currentUserState) {
 		localStorage.setItem('user', JSON.stringify(currentUserState));
 	}

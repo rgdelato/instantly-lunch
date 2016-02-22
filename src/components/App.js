@@ -33,6 +33,7 @@ export default class App extends Component {
 
 		return (
 			<div>
+
 				<Header />
 
 				<TransitionMotion
@@ -52,6 +53,7 @@ export default class App extends Component {
 				</TransitionMotion>
 
 				<Footer />
+
 			</div>
 		);
 	}
