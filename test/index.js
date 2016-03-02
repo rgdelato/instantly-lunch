@@ -1,4 +1,4 @@
-import test from 'tape';
+var test = require('tape');
 
 
 test('Initial test', function (assert) {
