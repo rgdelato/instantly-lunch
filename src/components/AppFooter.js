@@ -7,7 +7,7 @@ import { snapshot } from '../actions';
 class Footer extends Component {
 	render () {
 		const { state } = this.props;
-		
+
 		return (
 			<div className="footer">
 				<div className="footer-content">
@@ -21,11 +21,11 @@ class Footer extends Component {
 			</div>
 		);
 	}
-	
+
 	handleChange (e) {
 		const { dispatch } = this.props;
 		dispatch(snapshot(e.target.value));
 	}
-};
+}
 
 export default connect((state) => { return { state }; })(Footer);

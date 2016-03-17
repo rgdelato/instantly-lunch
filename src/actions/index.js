@@ -22,7 +22,7 @@ export const Actions = {
 
 export const snapshot = (state) => {
 
-	return (dispatch, getState) => {
+	return (dispatch) => {
 
 		try {
 			const newState = JSON.parse(state);
@@ -36,7 +36,7 @@ export const snapshot = (state) => {
 			dispatch(pushPath(url));
 
 		} catch (e) {
-			console.log(e);
+			// console.log(e);
 		}
 	};
 };

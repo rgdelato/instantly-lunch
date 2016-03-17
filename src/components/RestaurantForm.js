@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import classNames from 'classnames';
 
 
 
@@ -17,7 +16,7 @@ const AttributeCheckbox = (props) => {
 
 export default class RestaurantEditForm extends Component {
 	render () {
-		const { restaurant, onEdit, onClear, onSave, style } = this.props;
+		const { restaurant, onClear, style } = this.props;
 
 		if (restaurant) {
 			return (
@@ -65,4 +64,4 @@ export default class RestaurantEditForm extends Component {
 		e.preventDefault();
 		onSave();
 	}
-};
+}

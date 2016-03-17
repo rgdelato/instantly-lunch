@@ -22,14 +22,14 @@ export default class App extends Component {
 		};
 	}
 
-	willEnter (key) {
+	willEnter () {
 		return {
 			opacity: 0
 		};
 	}
 
 	render () {
-		const { children, location: { pathname, key } } = this.props;
+		const { children, location: { pathname } } = this.props;
 
 		return (
 			<div>
@@ -57,4 +57,4 @@ export default class App extends Component {
 			</div>
 		);
 	}
-};
+}

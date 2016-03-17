@@ -13,4 +13,4 @@ export default class RestaurantListPage extends Component {
 			</div>
 		);
 	}
-};
+}

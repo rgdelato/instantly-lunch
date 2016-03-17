@@ -4,13 +4,13 @@ import { editNew, saveNew, clearNew } from '../actions/index';
 
 
 
-const mapStateToProps = (state, props) => {
+const mapStateToProps = (state) => {
 	return {
 		adding: state.user && state.user.adding && state.user.adding.id
 	};
 };
 
-const mapDispatchToProps = (dispatch, ownProps) => {
+const mapDispatchToProps = (dispatch) => {
 	return {
 		onEditAdd (data) {
 			dispatch(editNew(data));

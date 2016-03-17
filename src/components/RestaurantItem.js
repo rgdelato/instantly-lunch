@@ -20,10 +20,10 @@ const Attribute = ({ test, trueText, falseText }) => {
 export default class RestaurantItem extends Component {
 	render () {
 		const { style, restaurant, editing, excluded, onEdit, onSave, onClear, onExclude } = this.props;
-		
+
 		// edit case
 		if (editing) {
-			
+
 			return (
 				<RestaurantForm
 					style={style}
@@ -33,27 +33,27 @@ export default class RestaurantItem extends Component {
 					onClear={onClear}
 				/>
 			);
-			
+
 		// normal case
 		} else {
 			return (
 				<div className="restaurant-item" style={style}>
 					<h1>{restaurant.name} </h1>
-					
+
 					<p>{restaurant.notes}</p>
-					
+
 					<div className="restaurant-item-attributes">
 						<Attribute test={restaurant.cheap} trueText="Cheap" falseText="Expensive" />
 						<Attribute test={restaurant.fast} trueText="Fast" falseText="Slow" />
 						<Attribute test={restaurant.walkable} trueText="Walkable" falseText="Driving" />
 					</div>
-					
+
 					<div className="restaurant-item-exclude">
 						<label>
 							<input type="checkbox" checked={excluded} onChange={(e) => { onExclude({[restaurant.id]: e.target.checked}); } } /> Exclude from Randomization
 						</label>
 					</div>
-					
+
 					<button
 						type="button"
 						className="restaurant-item-edit-button"
@@ -65,4 +65,4 @@ export default class RestaurantItem extends Component {
 			);
 		}
 	}
-};
+}

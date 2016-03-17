@@ -4,9 +4,9 @@ import { filter, randomize } from '../actions/index';
 
 
 
-const mapStateToProps = (state, ownProps) => {
+const mapStateToProps = (state) => {
 	const restaurant = (state.random) ? state.restaurants[state.random] : undefined;
-	
+
 	return {
 		restaurant,
 		editing: state.user && state.user.editing,
@@ -14,7 +14,7 @@ const mapStateToProps = (state, ownProps) => {
 	};
 }
 
-const mapDispatchToProps = (dispatch, ownProps) => {
+const mapDispatchToProps = (dispatch) => {
 	return {
 		onFilter (filterObject) {
 			dispatch(filter(filterObject));

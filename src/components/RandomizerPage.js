@@ -7,25 +7,25 @@ import RestaurantItem from '../containers/RestaurantItem';
 class AttributeCheckbox extends Component {
 	render () {
 		const { name } = this.props;
-	
+
 		return (
 			<label className="restaurant-item-attribute">
 				<input type="checkbox" {...this.props} /> {name[0].toUpperCase() + name.slice(1)}
 			</label>
 		);
 	}
-};
+}
 
 
 
 export default class RandomizerPage extends Component {
 	constructor (props) {
 		super(props);
-		
+
 		this.getStyles = this.getStyles.bind(this);
 		this.willEnterOrLeave = this.willEnterOrLeave.bind(this);
 	}
-	
+
 	getStyles (restaurant, editing) {
 		if (restaurant) {
 			return {
@@ -43,7 +43,7 @@ export default class RandomizerPage extends Component {
 			return {};
 		}
 	}
-	
+
 	willEnterOrLeave (key, styles) {
 		return {
 			opacity: spring(0),
@@ -55,10 +55,10 @@ export default class RandomizerPage extends Component {
 			editing: styles.editing
 		};
 	}
-	
+
 	render () {
-		const { restaurant, editing, filter, onFilter, onRandomize } = this.props;
-		
+		const { restaurant, editing, filter, onRandomize } = this.props;
+
 		return (
 			<div>
 				<div className="restaurant-list">
@@ -67,7 +67,7 @@ export default class RandomizerPage extends Component {
 						willEnter={this.willEnterOrLeave}
 						willLeave={this.willEnterOrLeave}
 					>
-						{(styles) => 
+						{(styles) =>
 							<div>
 								{Object.keys(styles).map((id) => {
 									const { restaurant, editing, ...style } = styles[id];
@@ -84,12 +84,12 @@ export default class RandomizerPage extends Component {
 						}
 					</TransitionMotion>
 				</div>
-				
+
 				<button onClick={onRandomize}>Randomize</button>
-				
+
 				<br clear="all" />
 				<br clear="all" />
-				
+
 				<div className="restaurant-list">
 					<div className="restaurant-item-attributes">
 						<AttributeCheckbox
@@ -112,10 +112,10 @@ export default class RandomizerPage extends Component {
 			</div>
 		);
 	}
-	
+
 	handleChange (e) {
 		this.props.onFilter({
 			[e.target.name]: e.target.checked
 		});
 	}
-};
+}

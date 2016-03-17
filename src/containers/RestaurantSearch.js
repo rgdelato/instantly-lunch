@@ -4,13 +4,13 @@ import { search } from '../actions/index';
 
 
 
-const mapStateToProps = (state, props) => {
+const mapStateToProps = (state) => {
 	return {
 		searchText: state.search
 	};
 };
 
-const mapDispatchToProps = (dispatch, ownProps) => {
+const mapDispatchToProps = (dispatch) => {
 	return {
 		onSearch (text) {
 			dispatch(search(text));

@@ -8,11 +8,11 @@ import RestaurantAdd from '../containers/RestaurantAdd';
 export default class RestaurantList extends Component {
 	constructor (props) {
 		super(props);
-		
+
 		this.getStyles = this.getStyles.bind(this);
 		this.willEnterOrLeave = this.willEnterOrLeave.bind(this);
 	}
-	
+
 	getStyles (restaurants, editing) {
 		return restaurants.reduce((acc, restaurant) => {
 			acc[restaurant.id] = {
@@ -27,7 +27,7 @@ export default class RestaurantList extends Component {
 			return acc;
 		}, {});
 	}
-	
+
 	willEnterOrLeave (key, style) {
 		return {
 			opacity: spring(0),
@@ -39,13 +39,13 @@ export default class RestaurantList extends Component {
 			editing: style.editing
 		};
 	}
-	
+
 	render () {
 		const { restaurants, editing } = this.props;
-		
+
 		return (
 			<div className="restaurant-list">
-				
+
 				<TransitionMotion
 					styles={this.getStyles(restaurants, editing)}
 					willEnter={this.willEnterOrLeave}
@@ -55,7 +55,7 @@ export default class RestaurantList extends Component {
 						<div>
 							{Object.keys(styles).map((id) => {
 								const { restaurant, editing, ...style } = styles[id];
-								
+
 								return (
 									<RestaurantItem
 										key={restaurant.id}
@@ -68,9 +68,9 @@ export default class RestaurantList extends Component {
 						</div>
 					}
 				</TransitionMotion>
-				
+
 				<RestaurantAdd />
 			</div>
 		);
 	}
-};
+}
